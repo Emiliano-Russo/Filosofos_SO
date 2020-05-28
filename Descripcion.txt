@@ -1,0 +1,4 @@
+Este es un obligatorio para la materia Sistemas Operativos
+28-05-2020
+
+Consta de una simulacion en Unity (titulada los filosofos)
