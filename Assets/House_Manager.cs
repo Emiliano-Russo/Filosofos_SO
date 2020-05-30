@@ -1,54 +1,84 @@
-﻿using System;
+﻿using Assets;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class House_Manager : MonoBehaviour
 {
-    private float contador = 0;
-    private bool quitando_filosofo = false;
+    private float segundos = 0;
     private Filosofo logic_filosofo_dentro;
     private Filosofo logic_filosofo_fuera;
+    private bool ya_lo_hicimos;
 
-    public GameObject[] Filosofo;
+    public GameObject[] Filosofos;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        contador += Time.deltaTime;
-        if (contador >= 5)
-        {
-            Quitar_Aleatorio_un_Filosofo();
-        }
-        
+        logic_filosofo_fuera = Filosofos[5].GetComponent<Filosofo>();
     }
 
-    private void Quitar_Aleatorio_un_Filosofo()
+    void Update()
     {
-
-        if (!quitando_filosofo)
+        segundos += Time.deltaTime;
+        if (segundos >= 5)
         {
-            quitando_filosofo = true;
-            int nro_random = 2;//hacemos un random de los que estan dentro
-            logic_filosofo_dentro = Filosofo[nro_random].GetComponent<Filosofo>();
+            Asignar_Filosofo_Dentro_Random();
+            Cambio_de_Filosofo();
+        }
+        else
+            ya_lo_hicimos = false;
+
+
+    }
+
+    private void Asignar_Filosofo_Dentro_Random()
+    {
+        if (!ya_lo_hicimos)
+        {
+            int[] ignore = { Nro_Filosofo_Fuera() };
+            Random_Number_Generator.Roll_A(1, 6, ignore);
+            int nro_random = Random_Number_Generator.nro_A;
+            logic_filosofo_dentro = Filosofos[nro_random].GetComponent<Filosofo>();
+            ya_lo_hicimos = true;
         }
 
-        if (logic_filosofo_dentro.en_casa)
+    }
+
+    private void Cambio_de_Filosofo()
+    {
+        if (logic_filosofo_dentro.estoy_en_casa == true || logic_filosofo_fuera.estoy_en_casa == false)
         {
-            logic_filosofo_dentro.Salir_Casa();
+            Quitar_Filosofo_Dentro();
+            Entrar_al_Filosofo_de_Afuera();
         }
         else
         {
-            contador = 0;
-            quitando_filosofo = false;
+            logic_filosofo_fuera = logic_filosofo_dentro;
             logic_filosofo_dentro = null;
+            segundos = 0;
         }
     }
 
-    
-
-    private void Resetear_Contador()
+    private void Entrar_al_Filosofo_de_Afuera()
     {
+        logic_filosofo_fuera.Entrar_Casa();
+    }
 
+    private void Quitar_Filosofo_Dentro()
+    {
+        logic_filosofo_dentro.Salir_Casa();
+    }
+
+    private int Nro_Filosofo_Fuera()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            if (!Filosofos[i].GetComponent<Filosofo>().estoy_en_casa)
+                return i;
+        }
+        throw new Exception("No hay ningun filosofo afuera");
     }
 }
