@@ -269,7 +269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 603, y: 0}
+  m_AnchoredPosition: {x: -147, y: 34}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &82756333
@@ -376,9 +376,9 @@ GameObject:
   - component: {fileID: 91558745}
   - component: {fileID: 91558744}
   m_Layer: 0
-  m_Name: Tenedor 2
+  m_Name: Tenedor 3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -441,7 +441,7 @@ Transform:
   m_LocalScale: {x: 1.836869, y: 2.0527363, z: 1}
   m_Children: []
   m_Father: {fileID: 750660872}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: -45}
 --- !u!1001 &101232114
 PrefabInstance:
@@ -464,6 +464,16 @@ PrefabInstance:
         type: 3}
       propertyPath: nro_asiento_ocupado
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_a
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_b
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7972467812413255574, guid: d6c9939bd79d736488e0e135742a9e0a,
         type: 3}
@@ -628,7 +638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540.2, y: 34.5}
+  m_AnchoredPosition: {x: -503, y: 44}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124401409
@@ -652,10 +662,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -786,6 +796,16 @@ PrefabInstance:
       propertyPath: lugar_ocupado_txt
       value: 
       objectReference: {fileID: 2019295709}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_a
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_b
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7972467812413255574, guid: d6c9939bd79d736488e0e135742a9e0a,
         type: 3}
       propertyPath: m_Name
@@ -882,7 +902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540.2, y: -15}
+  m_AnchoredPosition: {x: -503, y: -5.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224360307
@@ -906,10 +926,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -1122,6 +1142,16 @@ PrefabInstance:
       propertyPath: estoy_comiendo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_a
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_b
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7972467812413255574, guid: d6c9939bd79d736488e0e135742a9e0a,
         type: 3}
       propertyPath: m_Name
@@ -1312,7 +1342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 982, y: 6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &485317048
@@ -1626,9 +1656,9 @@ GameObject:
   - component: {fileID: 656950376}
   - component: {fileID: 656950375}
   m_Layer: 0
-  m_Name: Tenedor 3
+  m_Name: Tenedor 2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1644,7 +1674,7 @@ Transform:
   m_LocalScale: {x: 1.836869, y: 2.0527363, z: 1}
   m_Children: []
   m_Father: {fileID: 750660872}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 135}
 --- !u!23 &656950375
 MeshRenderer:
@@ -1849,8 +1879,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4223422149304532}
-  - {fileID: 91558746}
   - {fileID: 656950374}
+  - {fileID: 91558746}
   - {fileID: 796655167}
   - {fileID: 1233272867}
   m_Father: {fileID: 617033333}
@@ -1870,7 +1900,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tenedor 4
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2394,6 +2424,16 @@ PrefabInstance:
       propertyPath: lugar_ocupado_txt
       value: 
       objectReference: {fileID: 584889396}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_a
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_b
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7972467812413255574, guid: d6c9939bd79d736488e0e135742a9e0a,
         type: 3}
       propertyPath: m_Name
@@ -2761,7 +2801,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tenedor 5
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3190,7 +3230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540.2, y: 135.8}
+  m_AnchoredPosition: {x: -503, y: 145.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367964275
@@ -3214,10 +3254,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -3469,6 +3509,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470258089}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1470804993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1470804994}
+  - component: {fileID: 1470804996}
+  - component: {fileID: 1470804995}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1470804994
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470804993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 1.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1665787674}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -421, y: -18}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1470804995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470804993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1470804996
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470804993}
+  m_CullTransparentMesh: 0
 --- !u!1 &1564225014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3694,6 +3808,7 @@ RectTransform:
   m_Children:
   - {fileID: 376858209}
   - {fileID: 59083528}
+  - {fileID: 1470804994}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3824,6 +3939,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40adbe73d0e167a45a3ea37b3e760c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tenedores:
+  - {fileID: 0}
+  - {fileID: 1008382344979356}
+  - {fileID: 91558743}
+  - {fileID: 656950373}
+  - {fileID: 796655166}
+  - {fileID: 1233272866}
 --- !u!4 &1755184296
 Transform:
   m_ObjectHideFlags: 0
@@ -3872,7 +3994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540.2, y: 85}
+  m_AnchoredPosition: {x: -503, y: 94.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769359393
@@ -3896,10 +4018,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -4356,13 +4478,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087365447}
-  m_LocalRotation: {x: 0.114267595, y: 0.58424765, z: -0.083540924, w: 0.79913616}
-  m_LocalPosition: {x: 2.237, y: 2.851, z: 2.999}
+  m_LocalRotation: {x: 0.088075794, y: -0.87241995, z: 0.17101556, w: 0.44931036}
+  m_LocalPosition: {x: 8.492, y: 2.67, z: 6.671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 16.275002, y: 72.341, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.181002, y: -125.50201, z: 0}
 --- !u!1 &1008382344979356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4499,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tenedor 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4477,6 +4599,16 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1067053342146234}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_a
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971423320735245670, guid: d6c9939bd79d736488e0e135742a9e0a,
+        type: 3}
+      propertyPath: tenedor_b
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7972467812413255574, guid: d6c9939bd79d736488e0e135742a9e0a,
         type: 3}
       propertyPath: m_Name

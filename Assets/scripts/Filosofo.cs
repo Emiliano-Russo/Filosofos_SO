@@ -4,6 +4,7 @@ using UnityEngine;
 using Assets;
 using System;
 using UnityEngine.UI;
+using Assets.scripts;
 
 public class Filosofo : MonoBehaviour
 {
@@ -13,9 +14,8 @@ public class Filosofo : MonoBehaviour
     private bool llegue_al_destino;
     private float distancia_min_para_llegar = 0.05f;
     private float velocidad_caminando = 1;
-
     private Puntos puntos;
-
+    private Inv_Tenedores inv_tenedores;
 
     public Nro_Asiento nro_asiento_ocupado;
     public bool estoy_en_casa;
@@ -25,18 +25,34 @@ public class Filosofo : MonoBehaviour
 
 
 
-   
+
+    private void Start()
+    {
+        inv_tenedores = GameObject.Find("Tenedores_Manager").GetComponent<Inv_Tenedores>();
+        anim = GetComponent<Animator>();
+        puntos = GameObject.Find("Puntos").GetComponent<Puntos>();
+        estoy_comiendo = false;
+    }
+
 
     private void Update()
     {
         lugar_ocupado_txt.text = "lugar ocupado (" + transform.name + "): " + nro_asiento_ocupado;
-    }
-    private void Start()
-    {
-        anim = GetComponent<Animator>();
-        puntos = GameObject.Find("Puntos").GetComponent<Puntos>();
+
+        if (estoy_en_casa && !estoy_comiendo && nro_asiento_ocupado != Nro_Asiento.Ningun_Asiento)
+        {
+            Intentar_Comer();
+        }
+
     }
 
+    private void Intentar_Comer()
+    {
+        if (inv_tenedores.PuedeComer(nro_asiento_ocupado))
+            anim.SetBool("Comer", true);
+        else
+            inv_tenedores.Solicitar_Tenedores_Semejantes(nro_asiento_ocupado);
+    }
 
     public void Entrar_Casa()
     {
@@ -56,16 +72,6 @@ public class Filosofo : MonoBehaviour
 
 
 
-
-    //hacer una animacion de comer
-    private void EmpezarAComer()
-    {
-        //si estoy en el lugar
-        if (nro_asiento_ocupado != Nro_Asiento.Ningun_Asiento)
-        {
-            //activar la animacion de comer
-        }
-    }
 
     //hacer la ruta para ingresar a casa
     private void Ingresar_Casa()
@@ -88,7 +94,7 @@ public class Filosofo : MonoBehaviour
 
     private void Ir_Hasta_La_Puerta()
     {
-       
+
         llegue_a_puerta = Vector3.Distance(puntos.punto_salida.transform.position, transform.position) < distancia_min_para_llegar;
         transform.LookAt(puntos.punto_salida.transform.position);
         transform.position = Vector3.MoveTowards(transform.position, puntos.punto_salida.transform.position, Time.deltaTime * velocidad_caminando);
@@ -101,7 +107,7 @@ public class Filosofo : MonoBehaviour
         Aux_GetLugarLibre();
         int asiento_a_ocupar = lugar_libre.lugar_libre_nro;
         GameObject lugar_punto = lugar_libre.lugar_libre_punto;
-        Moverse_al_Lugar(lugar_punto,asiento_a_ocupar);      
+        Moverse_al_Lugar(lugar_punto, asiento_a_ocupar);
     }
 
     private void Aux_GetLugarLibre()
@@ -113,7 +119,7 @@ public class Filosofo : MonoBehaviour
         }
     }
 
-    private void Moverse_al_Lugar(GameObject lugar_punto,int asiento_a_ocupar)
+    private void Moverse_al_Lugar(GameObject lugar_punto, int asiento_a_ocupar)
     {
         llegue_al_destino = Vector3.Distance(lugar_punto.transform.position, transform.position) < distancia_min_para_llegar;
         transform.LookAt(lugar_punto.transform.position);
@@ -125,7 +131,7 @@ public class Filosofo : MonoBehaviour
     private void Situar_Variables_Modo_Dentro_de_Casa()
     {
         nro_asiento_ocupado = (Nro_Asiento)lugar_libre.lugar_libre_nro;
-        transform.LookAt(puntos.get_centro_de_la_mesa.transform.position);        
+        transform.LookAt(puntos.get_centro_de_la_mesa.transform.position);
         estoy_en_casa = true;
         llegue_al_destino = false;
         llegue_a_puerta = false;
@@ -139,6 +145,9 @@ public class Filosofo : MonoBehaviour
     //hacer la ruta para marcharse de la casa
     private void IrseDeCasa()
     {
+        print("-------alguien se fue -----------");
+        anim.SetBool("Comer", false);
+        Dejar_Tenedores();
         anim.SetBool("Caminar", true);
         Dejar_Lugar_Libre();
         //si no estoy en el lugar 3
@@ -169,6 +178,11 @@ public class Filosofo : MonoBehaviour
         //}
     }
 
+    private void Dejar_Tenedores()
+    {
+        inv_tenedores.Desocupar_tenedores(nro_asiento_ocupado);
+    }
+
     private void Dejar_Lugar_Libre()
     {
         if (!lugar_libre_marcado)
@@ -179,13 +193,4 @@ public class Filosofo : MonoBehaviour
         }
     }
 
-    //parar de hacer la animacion de comer
-    private void PararDeComer()
-    {
-        if (estoy_comiendo)
-        {
-            //detener animacion comer
-        }
-
-    }
 }
