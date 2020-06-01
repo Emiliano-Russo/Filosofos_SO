@@ -23,13 +23,6 @@ namespace Assets
 
         public Text[] asientos_txt;
 
-        private void Update()
-        {
-            for (int i = 1; i <= 4; i++)
-            {
-                asientos_txt[i].text = i + ") libre: " + lugar_libre[i];
-            }
-        }
 
         private void Start()
         {

@@ -16,11 +16,11 @@ public class Filosofo : MonoBehaviour
     private float velocidad_caminando = 1;
     private Puntos puntos;
     private Inv_Tenedores inv_tenedores;
+    private Lugares_Img_representation LIR;
 
     public Nro_Asiento nro_asiento_ocupado;
     public bool estoy_en_casa;
     public bool estoy_comiendo;
-    public Text lugar_ocupado_txt;
     public Animator anim;
 
 
@@ -31,14 +31,13 @@ public class Filosofo : MonoBehaviour
         inv_tenedores = GameObject.Find("Tenedores_Manager").GetComponent<Inv_Tenedores>();
         anim = GetComponent<Animator>();
         puntos = GameObject.Find("Puntos").GetComponent<Puntos>();
+        LIR = GameObject.Find("Lugares_toImage").GetComponent<Lugares_Img_representation>();
         estoy_comiendo = false;
     }
 
 
     private void Update()
     {
-        lugar_ocupado_txt.text = "lugar ocupado (" + transform.name + "): " + nro_asiento_ocupado;
-
         if (estoy_en_casa && !estoy_comiendo && nro_asiento_ocupado != Nro_Asiento.Ningun_Asiento)
         {
             Intentar_Comer();
@@ -131,6 +130,7 @@ public class Filosofo : MonoBehaviour
     private void Situar_Variables_Modo_Dentro_de_Casa()
     {
         nro_asiento_ocupado = (Nro_Asiento)lugar_libre.lugar_libre_nro;
+        Setear_Color_Asiento();
         transform.LookAt(puntos.get_centro_de_la_mesa.transform.position);
         estoy_en_casa = true;
         llegue_al_destino = false;
@@ -143,6 +143,28 @@ public class Filosofo : MonoBehaviour
 
     bool lugar_libre_marcado = false;
     //hacer la ruta para marcharse de la casa
+
+    public void Setear_Color_Asiento()
+    {
+        int nroAsiento = (int)nro_asiento_ocupado;
+        switch ((int)nro_asiento_ocupado)
+        {
+            case 1:
+                LIR.lugar[nroAsiento].color = Color.green;
+                break;
+            case 2:
+                LIR.lugar[nroAsiento].color = Color.blue;
+                break;
+            case 3:
+                LIR.lugar[nroAsiento].color = Color.yellow;
+                break;
+            case 4:
+                LIR.lugar[nroAsiento].color = Color.red;
+                break;
+            default:
+                throw new Exception("Nro Lugar no detectado: " + nroAsiento);
+        }     
+    }
     private void IrseDeCasa()
     {
         print("-------alguien se fue -----------");
@@ -189,6 +211,7 @@ public class Filosofo : MonoBehaviour
         {
             lugar_libre_marcado = true;
             puntos.Set_Lugar_Libre((int)nro_asiento_ocupado);
+            LIR.lugar[(int)nro_asiento_ocupado].color = Color.black;
             nro_asiento_ocupado = Nro_Asiento.Ningun_Asiento;
         }
     }
