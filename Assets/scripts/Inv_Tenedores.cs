@@ -28,13 +28,6 @@ public class Inv_Tenedores : MonoBehaviour
         nroAsiento_parTenedores.Add(Nro_Asiento.Asiento_4, new Par_Tenedores(Tenedor.Tenedor_4, Tenedor.Tenedor_2));
     }
 
-    private void Update()
-    {
-        foreach (KeyValuePair<Tenedor, Nro_Asiento> item in tenedor_ocupadoPor)
-        {
-            print(item.Key + " ) " + item.Value);
-        }
-    }
 
     internal bool PuedeComer(Nro_Asiento nro_asiento_consultado)
     {

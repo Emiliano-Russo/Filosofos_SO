@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class House_Manager : MonoBehaviour
 {
@@ -17,24 +18,33 @@ public class House_Manager : MonoBehaviour
     public GameObject[] Filosofos;
 
 
+    private float limite;
+    public Text segundos_restantes;
+
+
     private void Start()
     {
         logic_filosofo_fuera = Filosofos[5].GetComponent<Filosofo>();
         tenedor_manager = GameObject.Find("Tenedores_Manager").GetComponent<Inv_Tenedores>();
+        limite = PlayerPrefs.GetFloat("segundos");
     }
 
     void Update()
     {
         segundos += Time.deltaTime;
-        if (segundos >= 5)
+
+        if (segundos >= limite)
         {
             Asignar_Filosofo_Dentro_Random();
             Cambio_de_Filosofo();
         }
         else
+        {
+            float mostrar = (limite - segundos);
+            segundos_restantes.text = mostrar.ToString("F0");
             ya_lo_hicimos = false;
 
-
+        }
     }
 
     private void Asignar_Filosofo_Dentro_Random()
