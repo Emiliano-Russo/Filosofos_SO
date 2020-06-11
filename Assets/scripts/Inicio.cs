@@ -31,4 +31,9 @@ public class Inicio : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void Salir_del_juego()
+    {
+        Application.Quit();
+    }
+
 }
